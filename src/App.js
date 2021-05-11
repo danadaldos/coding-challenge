@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react'
 
-export default class App extends Component {
-  render() {
-    return null
-  }
+const app = () => {
+  return (
+    <React.Fragment>
+      <h1>Hello</h1>
+      <p>World</p>
+    </React.Fragment>
+  )
 }
+
+export default app
