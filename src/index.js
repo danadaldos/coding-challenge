@@ -2,10 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider } from '@apollo/client/react';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import {default as taskResolvers} from './clientresolver'
+
+const client = new ApolloClient({
+  uri: 'https://api.example.com',
+  cache: new InMemoryCache(),
+  resolvers: {
+    queries: {
+      ...taskResolvers.queries
+    }
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
