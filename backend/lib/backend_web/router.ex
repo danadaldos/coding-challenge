@@ -20,9 +20,14 @@ defmodule BackendWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BackendWeb do
-  #   pipe_through :api
-  # end
+  scope "/" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: BackendWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: BackendWeb.Endpoint}
+  end
 
   # Enables LiveDashboard only for development
   #
