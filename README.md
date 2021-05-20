@@ -59,6 +59,7 @@ to store the task list data.
 ### Implement GraphQL resolver
 
 The backend implementation has a stub implementation for the all todo's resolver. Replace this stub with an actual resolver that uses your database schema from the previous excercise to provide the list of todo's.
+
 ## Getting Started
 
 ### Backend
