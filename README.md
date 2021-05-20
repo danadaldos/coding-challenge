@@ -7,7 +7,7 @@ formal interviews, we ask that all candidates submit a coding challenge. The cod
 a foundational piece of our process and it's referenced later in our process during the technical 
 interviews.
 
-For an experienced web developer, the coding challenge should not take longer than **2-3 hours** to 
+For an experienced full stack developer, the coding challenge should not take longer than **2-4 hours** to 
 complete.
 
 If at any point you have questions concerning the coding challenge and/or interview process, please
@@ -17,10 +17,11 @@ do not hesitate to email engineering@wonderschool.com.
 
 The coding challenge revolves around building a task list. Tasks belong to groups and can have
 dependencies on one another (i.e. if task X depends on task Y, task X cannot be completed until
-task Y is completed). The challenge includes 2 components:
+task Y is completed). The challenge includes 3 components:
 
 * Build React-based UI
-* Design database schema
+* Design database schemas to store todo's using Ecto
+* Implement GraphQL resolver logic in elixir
 
 ### Build React-based UI
 
@@ -36,9 +37,8 @@ The screens should look like this:
 
 ![screen design](https://user-images.githubusercontent.com/314351/56453206-d1ec2580-62f3-11e9-83d7-67aff2e1deef.png)
 
-The data you should use to populate your implementation is available at _public/data.json_ and can 
-be loaded from http://localhost:3000/data.json. SVG assets for the icons used in the design 
-also live in _public/_ and can be loaded similarly.
+The data you should use to populate your implementation is available via a simple GraphQL query which is already included. 
+SVG assets for the icons used in the design can be found in the _public/_ directory.
 
 Some things to keep in mind:
 
@@ -49,26 +49,37 @@ Some things to keep in mind:
   the challenge
 * We value well structured code that follows best practices
 
-### Design Database Schema
+### Design and Build Database Schema
 
-Design a schema in SQL to store the task list data. You can add the SQL code needed to create
-the schema to _schema.sql_. The schema should define all tables, columns, and constraints needed
+Design a schema to store the task list data. You should use Ecto migrations to create
+the tables needed. The schema should define all tables, columns, and constraints needed
 to store the task list data.
 
+
+### Implement GraphQL resolver
+
+The backend implementation has a stub implementation for the all todo's resolver. Replace this stub with an actual resolver that uses your database schema from the previous excercise to provide the list of todo's.
 ## Getting Started
 
+### Backend
+Depending on your environment you might have to fist have to install all dependencies to run the elixir backend. Please see the [phoenix getting started documentation](https://hexdocs.pm/phoenix/installation.html) for more details.
+Once you have all needed dependencies installed start the server by standing in the _/backend_ folder and run:
+
+```
+mix phx.server
+```
+
+### Frontend
 To get started, clone this repo to your local machine. Next you'll want to install the dependencies
 and fire up the app:
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 At this point, the app should be running in development mode and any local modifications you make
 will be automatically detected and result in the app to reload.
-
-You should only need to add/modify code in the _src/_ directory.
 
 ## Submission
 
