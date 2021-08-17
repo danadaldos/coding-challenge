@@ -44,6 +44,7 @@ Some things to keep in mind:
 
 * Locked tasks cannot have their completion status toggled
 * Tasks remain locked until all of their dependencies have been completed
+* Marking a task as incomplete should lock the corresponding tasks for which it is a dependency
 * Your implementation should resemble the above design
 * **Please don't introduce any new dependencies**, you should have everything you need to complete
   the challenge
@@ -55,10 +56,17 @@ Design a schema to store the task list data. You should use Ecto migrations to c
 the tables needed. The schema should define all tables, columns, and constraints needed
 to store the task list data.
 
+### Implement schema modules and context
 
-### Implement GraphQL resolver
+Implement the corresponding schema modules for each new table designed in the previous step (structs or emedded schemas are permittable, as well, depending on your database implementation). Typespecs with Dialyzer are definitely favored.
 
-The backend implementation has a stub implementation for the all todo's resolver. Replace this stub with an actual resolver that uses your database schema from the previous excercise to provide the list of todo's.
+Write a context that manage's your todo's and interacts with the repo. Please be wary of naming and director structure conventions.
+
+### Implement GraphQL schemas & resolver
+
+Build a schema using Absinthe's schema notation to dictate object and input object structures. Please include queries and mutations for managing todo's from you UI.
+
+The backend implementation has a stub implementation for the all todo's resolver. Replace this stub with an actual resolver that calls to the context that you implemented in the previous step.
 
 ## Getting Started
 
@@ -99,3 +107,12 @@ Email the generated _coding-challenge.bundle_ file to engineering@wonderschool.c
 best to review and respond to submissions within 1-2 business days.
 
 Thanks for taking the time to do this coding challenge and here's hoping we talk soon!
+
+## Things to note
+
+1. Typespecs for Elixir code are appreciated
+2. Testing is favored if time permits, but given possible time constraints, we understand if this is cut short
+3. Using modern React conventions is preferred, e.g. dumb components, hooks, etc
+4. Please avoid using Phoenix generators for context functionality; we'd rather see your code and your patterns :)
+5. Have fun with it! We understand that coding challenges are a pain, but we really appreciate your participation in this process!
+6. If you have any you any questions or special circumstances, we are more than willing to work with you on having the best possible interview process.
