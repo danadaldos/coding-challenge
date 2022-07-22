@@ -60,18 +60,18 @@ to store the task list data.
 
 Implement the corresponding schema modules for each new table designed in the previous step (structs or emedded schemas are permittable, as well, depending on your database implementation). Typespecs with Dialyzer are definitely favored.
 
-Write a context that manage's your todo's and interacts with the repo. Please be wary of naming and director structure conventions.
+Write a context that manages your todo's and interacts with the repo. Please be wary of naming and directory structure conventions.
 
 ### Implement GraphQL schemas & resolver
 
-Build a schema using Absinthe's schema notation to dictate object and input object structures. Please include queries and mutations for managing todo's from you UI.
+Build a schema using Absinthe's schema notation to dictate object and input object structures. Please include queries and mutations for managing todo's from your UI.
 
 The backend implementation has a stub implementation for the all todo's resolver. Replace this stub with an actual resolver that calls to the context that you implemented in the previous step.
 
 ## Getting Started
 
 ### Backend
-Depending on your environment you might have to fist have to install all dependencies to run the elixir backend. Please see the [phoenix getting started documentation](https://hexdocs.pm/phoenix/installation.html) for more details.
+Depending on your environment you might first have to install all dependencies to run the elixir backend. Please see the [phoenix getting started documentation](https://hexdocs.pm/phoenix/installation.html) for more details.
 Once you have all needed dependencies installed start the server by standing in the _/backend_ folder and run:
 
 ```
